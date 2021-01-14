@@ -7,6 +7,7 @@
 
 #include "Map.hpp"
 #include "raylib-cpp.hpp"
+
 const int TILE_SIZE = 32;
 const int MAP_NUM_ROWS = 11;
 const int MAP_NUM_COLS = 15;

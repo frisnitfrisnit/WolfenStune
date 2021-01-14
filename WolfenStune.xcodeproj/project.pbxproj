@@ -17,6 +17,7 @@
 		196FDD3925AD3ACC00E14D7E /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD3725AD3ACC00E14D7E /* Game.cpp */; };
 		196FDD3D25AD3B5600E14D7E /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD3B25AD3B5600E14D7E /* Map.cpp */; };
 		196FDD4125AD486C00E14D7E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD3F25AD486C00E14D7E /* Player.cpp */; };
+		19B5875A25AFDA4100AE3D1F /* Ray2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19B5875825AFDA4100AE3D1F /* Ray2d.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,8 @@
 		196FDD3C25AD3B5600E14D7E /* Map.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Map.hpp; sourceTree = "<group>"; };
 		196FDD3F25AD486C00E14D7E /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		196FDD4025AD486C00E14D7E /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		19B5875825AFDA4100AE3D1F /* Ray2d.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ray2d.cpp; sourceTree = "<group>"; };
+		19B5875925AFDA4100AE3D1F /* Ray2d.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Ray2d.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				196FDD3C25AD3B5600E14D7E /* Map.hpp */,
 				196FDD3F25AD486C00E14D7E /* Player.cpp */,
 				196FDD4025AD486C00E14D7E /* Player.hpp */,
+				19B5875825AFDA4100AE3D1F /* Ray2d.cpp */,
+				19B5875925AFDA4100AE3D1F /* Ray2d.hpp */,
 			);
 			path = WolfenStune;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			files = (
 				196FDD3925AD3ACC00E14D7E /* Game.cpp in Sources */,
 				196FDD2125AD300500E14D7E /* raylib-cpp.hpp in Sources */,
+				19B5875A25AFDA4100AE3D1F /* Ray2d.cpp in Sources */,
 				196FDD3D25AD3B5600E14D7E /* Map.cpp in Sources */,
 				196FDD0725AD2CA600E14D7E /* main.cpp in Sources */,
 				196FDD4125AD486C00E14D7E /* Player.cpp in Sources */,

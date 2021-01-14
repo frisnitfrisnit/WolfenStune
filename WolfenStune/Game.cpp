@@ -9,6 +9,7 @@
 
 int Game::mScreenWidth;
 int Game::mScreenHeight;
+
 Map Game::mMap;
 Player Game::mPlayer;
 
