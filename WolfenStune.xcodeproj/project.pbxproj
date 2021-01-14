@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		196FDD0725AD2CA600E14D7E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD0625AD2CA600E14D7E /* main.cpp */; };
+		196FDD1025AD2D2900E14D7E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196FDD0F25AD2D2900E14D7E /* OpenGL.framework */; };
+		196FDD1225AD2D2F00E14D7E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196FDD1125AD2D2F00E14D7E /* IOKit.framework */; };
+		196FDD1425AD2D3900E14D7E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196FDD1325AD2D3900E14D7E /* Cocoa.framework */; };
+		196FDD1D25AD2E8E00E14D7E /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196FDD1C25AD2E8E00E14D7E /* CoreVideo.framework */; };
+		196FDD2125AD300500E14D7E /* raylib-cpp.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD2025AD300500E14D7E /* raylib-cpp.hpp */; };
+		196FDD3025AD338D00E14D7E /* libraylib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 196FDD1A25AD2E1800E14D7E /* libraylib.a */; };
+		196FDD3925AD3ACC00E14D7E /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD3725AD3ACC00E14D7E /* Game.cpp */; };
+		196FDD3D25AD3B5600E14D7E /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD3B25AD3B5600E14D7E /* Map.cpp */; };
+		196FDD4125AD486C00E14D7E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD3F25AD486C00E14D7E /* Player.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +34,21 @@
 /* Begin PBXFileReference section */
 		196FDD0325AD2CA600E14D7E /* WolfenStune */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WolfenStune; sourceTree = BUILT_PRODUCTS_DIR; };
 		196FDD0625AD2CA600E14D7E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		196FDD0F25AD2D2900E14D7E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		196FDD1125AD2D2F00E14D7E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		196FDD1325AD2D3900E14D7E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		196FDD1525AD2D5E00E14D7E /* raylib-cpp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = "raylib-cpp.hpp"; path = "../../raylib-cpp/include/raylib-cpp.hpp"; sourceTree = "<group>"; };
+		196FDD1A25AD2E1800E14D7E /* libraylib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libraylib.a; path = ../../raylib/src/libraylib.a; sourceTree = "<group>"; };
+		196FDD1C25AD2E8E00E14D7E /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		196FDD2025AD300500E14D7E /* raylib-cpp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "raylib-cpp.hpp"; sourceTree = "<group>"; };
+		196FDD2A25AD329500E14D7E /* libraylib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libraylib.a; path = "../../raylib-cpp/vendor/raylib/src/libraylib.a"; sourceTree = "<group>"; };
+		196FDD2D25AD330400E14D7E /* libraylib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libraylib.a; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/HomeDev/RayLib/raylib-3.5.0_macos/lib/libraylib.a"; sourceTree = "<group>"; };
+		196FDD3725AD3ACC00E14D7E /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		196FDD3825AD3ACC00E14D7E /* Game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
+		196FDD3B25AD3B5600E14D7E /* Map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
+		196FDD3C25AD3B5600E14D7E /* Map.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Map.hpp; sourceTree = "<group>"; };
+		196FDD3F25AD486C00E14D7E /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		196FDD4025AD486C00E14D7E /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +56,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				196FDD3025AD338D00E14D7E /* libraylib.a in Frameworks */,
+				196FDD1D25AD2E8E00E14D7E /* CoreVideo.framework in Frameworks */,
+				196FDD1425AD2D3900E14D7E /* Cocoa.framework in Frameworks */,
+				196FDD1225AD2D2F00E14D7E /* IOKit.framework in Frameworks */,
+				196FDD1025AD2D2900E14D7E /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +70,10 @@
 		196FDCFA25AD2CA600E14D7E = {
 			isa = PBXGroup;
 			children = (
+				196FDD2025AD300500E14D7E /* raylib-cpp.hpp */,
 				196FDD0525AD2CA600E14D7E /* WolfenStune */,
 				196FDD0425AD2CA600E14D7E /* Products */,
+				196FDD0E25AD2D2900E14D7E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +89,29 @@
 			isa = PBXGroup;
 			children = (
 				196FDD0625AD2CA600E14D7E /* main.cpp */,
+				196FDD3725AD3ACC00E14D7E /* Game.cpp */,
+				196FDD3825AD3ACC00E14D7E /* Game.hpp */,
+				196FDD3B25AD3B5600E14D7E /* Map.cpp */,
+				196FDD3C25AD3B5600E14D7E /* Map.hpp */,
+				196FDD3F25AD486C00E14D7E /* Player.cpp */,
+				196FDD4025AD486C00E14D7E /* Player.hpp */,
 			);
 			path = WolfenStune;
+			sourceTree = "<group>";
+		};
+		196FDD0E25AD2D2900E14D7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				196FDD2A25AD329500E14D7E /* libraylib.a */,
+				196FDD2D25AD330400E14D7E /* libraylib.a */,
+				196FDD1C25AD2E8E00E14D7E /* CoreVideo.framework */,
+				196FDD1A25AD2E1800E14D7E /* libraylib.a */,
+				196FDD1525AD2D5E00E14D7E /* raylib-cpp.hpp */,
+				196FDD1325AD2D3900E14D7E /* Cocoa.framework */,
+				196FDD1125AD2D2F00E14D7E /* IOKit.framework */,
+				196FDD0F25AD2D2900E14D7E /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +170,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				196FDD3925AD3ACC00E14D7E /* Game.cpp in Sources */,
+				196FDD2125AD300500E14D7E /* raylib-cpp.hpp in Sources */,
+				196FDD3D25AD3B5600E14D7E /* Map.cpp in Sources */,
 				196FDD0725AD2CA600E14D7E /* main.cpp in Sources */,
+				196FDD4125AD486C00E14D7E /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +298,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N7XVL6L9ZF;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					"/Users/stuarthunt/Documents/GitHub/raylib-cpp/include/",
+					/Users/stuarthunt/Documents/GitHub/raylib/src,
+				);
+				LIBRARY_SEARCH_PATHS = /Users/stuarthunt/Documents/GitHub/raylib/src;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -252,6 +313,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N7XVL6L9ZF;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					"/Users/stuarthunt/Documents/GitHub/raylib-cpp/include/",
+					/Users/stuarthunt/Documents/GitHub/raylib/src,
+				);
+				LIBRARY_SEARCH_PATHS = /Users/stuarthunt/Documents/GitHub/raylib/src;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -1,14 +1,32 @@
-//
-//  main.cpp
-//  WolfenStune
-//
-//  Created by Stuart Hunt on 12/01/2021.
-//
+#include "raylib-cpp.hpp"
+#include "Game.hpp"
 
-#include <iostream>
+int main() {
+		// Initialization
+		//--------------------------------------------------------------------------------------
+		int screenWidth = 15 * 32;
+		int screenHeight = 11 * 32;
+		raylib::Window w(screenWidth, screenHeight, "WolfenStune");
+		SetTargetFPS(60);
+	
+		Game::InitGame(screenWidth, screenHeight);
 
-int main(int argc, const char * argv[]) {
-	// insert code here...
-	std::cout << "Hello, World!\n";
-	return 0;
+		//--------------------------------------------------------------------------------------
+
+		// Main game loop
+		while (!w.ShouldClose())    // Detect window close button or ESC key
+		{
+			Game::UpdateGame(GetFrameTime());
+
+			// Draw
+			//----------------------------------------------------------------------------------
+			BeginDrawing();
+			ClearBackground(BLACK);
+			Game::RenderGame();
+			EndDrawing();
+			//----------------------------------------------------------------------------------
+		}
+
+		return 0;
 }
+
