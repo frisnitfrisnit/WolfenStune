@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1920DB3525B6644A0024A3E4 /* LineSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1920DB3325B6644A0024A3E4 /* LineSegment.cpp */; };
 		196FDD0725AD2CA600E14D7E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD0625AD2CA600E14D7E /* main.cpp */; };
 		196FDD1025AD2D2900E14D7E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196FDD0F25AD2D2900E14D7E /* OpenGL.framework */; };
 		196FDD1225AD2D2F00E14D7E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196FDD1125AD2D2F00E14D7E /* IOKit.framework */; };
 		196FDD1425AD2D3900E14D7E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196FDD1325AD2D3900E14D7E /* Cocoa.framework */; };
 		196FDD1D25AD2E8E00E14D7E /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196FDD1C25AD2E8E00E14D7E /* CoreVideo.framework */; };
-		196FDD2125AD300500E14D7E /* raylib-cpp.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD2025AD300500E14D7E /* raylib-cpp.hpp */; };
 		196FDD3025AD338D00E14D7E /* libraylib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 196FDD1A25AD2E1800E14D7E /* libraylib.a */; };
 		196FDD3925AD3ACC00E14D7E /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD3725AD3ACC00E14D7E /* Game.cpp */; };
-		196FDD3D25AD3B5600E14D7E /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD3B25AD3B5600E14D7E /* Map.cpp */; };
-		196FDD4125AD486C00E14D7E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD3F25AD486C00E14D7E /* Player.cpp */; };
-		19B5875A25AFDA4100AE3D1F /* Ray2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19B5875825AFDA4100AE3D1F /* Ray2d.cpp */; };
+		19A1753E25B48B58000FC5F2 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD3F25AD486C00E14D7E /* Player.cpp */; };
+		19A1754025B48B5C000FC5F2 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196FDD3B25AD3B5600E14D7E /* Map.cpp */; };
+		19A1754225B48B63000FC5F2 /* Ray2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19B5875825AFDA4100AE3D1F /* Ray2d.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +33,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1920DB3325B6644A0024A3E4 /* LineSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineSegment.cpp; sourceTree = "<group>"; };
+		1920DB3425B6644A0024A3E4 /* LineSegment.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LineSegment.hpp; sourceTree = "<group>"; };
 		196FDD0325AD2CA600E14D7E /* WolfenStune */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WolfenStune; sourceTree = BUILT_PRODUCTS_DIR; };
 		196FDD0625AD2CA600E14D7E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		196FDD0F25AD2D2900E14D7E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -91,6 +93,8 @@
 		196FDD0525AD2CA600E14D7E /* WolfenStune */ = {
 			isa = PBXGroup;
 			children = (
+				1920DB3325B6644A0024A3E4 /* LineSegment.cpp */,
+				1920DB3425B6644A0024A3E4 /* LineSegment.hpp */,
 				196FDD0625AD2CA600E14D7E /* main.cpp */,
 				196FDD3725AD3ACC00E14D7E /* Game.cpp */,
 				196FDD3825AD3ACC00E14D7E /* Game.hpp */,
@@ -175,12 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19A1754225B48B63000FC5F2 /* Ray2d.cpp in Sources */,
+				1920DB3525B6644A0024A3E4 /* LineSegment.cpp in Sources */,
+				19A1754025B48B5C000FC5F2 /* Map.cpp in Sources */,
+				19A1753E25B48B58000FC5F2 /* Player.cpp in Sources */,
 				196FDD3925AD3ACC00E14D7E /* Game.cpp in Sources */,
-				196FDD2125AD300500E14D7E /* raylib-cpp.hpp in Sources */,
-				19B5875A25AFDA4100AE3D1F /* Ray2d.cpp in Sources */,
-				196FDD3D25AD3B5600E14D7E /* Map.cpp in Sources */,
 				196FDD0725AD2CA600E14D7E /* main.cpp in Sources */,
-				196FDD4125AD486C00E14D7E /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

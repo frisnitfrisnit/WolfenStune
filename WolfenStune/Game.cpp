@@ -13,11 +13,12 @@ int Game::mScreenHeight;
 Map Game::mMap;
 Player Game::mPlayer;
 
-void Game::InitGame(const int screenWidth, const int screenHeight)
+void Game::InitGame(const int _screenWidth, const int _screenHeight, const int _mapTileSize)
 {
-	mScreenWidth = screenWidth;
-	mScreenHeight = screenHeight;
+	mScreenWidth = _screenWidth;
+	mScreenHeight = _screenHeight;
 	
+	mMap.CreateMap(_mapTileSize);
 	mPlayer.Init(Game::mScreenWidth / 2, Game::mScreenHeight / 2);
 }
 

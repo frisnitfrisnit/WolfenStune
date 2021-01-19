@@ -14,7 +14,7 @@
 class Game
 {
 public:
-	static void InitGame(const int screenWidth, const int screenHeight);
+	static void InitGame(const int _screenWidth, const int _screenHeight, const int _mapTileSize);
 	static void UpdateGame(const float _ts);
 	static void RenderGame();
 	

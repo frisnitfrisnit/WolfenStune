@@ -1,15 +1,17 @@
 #include "raylib-cpp.hpp"
 #include "Game.hpp"
 
+const int sMapTileSize = 57;
+
 int main() {
 		// Initialization
 		//--------------------------------------------------------------------------------------
-		int screenWidth = 15 * 32;
-		int screenHeight = 11 * 32;
+		int screenWidth = 15 * sMapTileSize;
+		int screenHeight = 11 * sMapTileSize;
 		raylib::Window w(screenWidth, screenHeight, "WolfenStune");
 		SetTargetFPS(60);
 	
-		Game::InitGame(screenWidth, screenHeight);
+		Game::InitGame(screenWidth, screenHeight, sMapTileSize);
 
 		//--------------------------------------------------------------------------------------
 

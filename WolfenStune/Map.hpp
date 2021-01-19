@@ -9,6 +9,8 @@
 #define Map_hpp
 
 #include "raylib-cpp.hpp"
+#include "LineSegment.hpp"
+#include <vector>
 
 class Map
 {
@@ -16,11 +18,22 @@ public:
 	Map();
 	virtual ~Map() {}
 	
-	void CreateMap();
+	void CreateMap(int _tileSize);
+	void CreateCollisionEdges();
+
 	void DrawMap() const;
 	
-	int IsWallAtPos(const raylib::Vector2& _pos) const { return GetMapAttrib(_pos) != 0; }
-	int GetMapAttrib(const raylib::Vector2& _pos) const;
+	int IsWallAtPos(const float _xPos, const float _yPos) const { return GetMapAttrib(_xPos, _yPos) != 0; }
+	int IsWallAtPosV(const raylib::Vector2& _pos) const { return GetMapAttribV(_pos) != 0; }
+	int GetMapAttrib(const float _xPos, const float _yPos) const;
+	int GetMapAttribV(const raylib::Vector2& _pos) const;
+
+	int mTileSize;
+
+	std::vector<LineSegment> mEdges;
+	
+private:
+	LineSegment CreateLineSegmentFromGrid(const int _startCol, const int _startRow, const int _endCol, const int _endRow);
 
 };
 
