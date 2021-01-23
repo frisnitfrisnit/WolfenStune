@@ -11,7 +11,7 @@
 
 //#define SINGLE_RAY
 
-static const Color sRayColour{255, 0, 0, 80};
+static const Color sRayColour{255, 0, 255, 40};
 static const int sRayDisplayWidth = 1;
 
 Player::Player()

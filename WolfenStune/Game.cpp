@@ -15,7 +15,7 @@ int Game::mScreenHeight;
 Map Game::mMap;
 Player Game::mPlayer;
 float Game::mMiniMapScaleFactor = 0.2f;
-
+bool scalingMiniMap = false;
 
 void Game::InitGame(const int _screenWidth, const int _screenHeight, const int _mapTileSize)
 {
@@ -29,6 +29,11 @@ void Game::InitGame(const int _screenWidth, const int _screenHeight, const int _
 void Game::UpdateGame(const float _ts)
 {
 	mPlayer.UpdatePlayer(_ts);
+	if(IsKeyPressed(KEY_M))
+	{
+		scalingMiniMap = !scalingMiniMap;
+		mMiniMapScaleFactor = scalingMiniMap ? 1.0f : 0.2f;
+	}
 }
 
 void Game::RenderGame()
