@@ -45,6 +45,7 @@ bool Ray2d::Cast()
 	
 	float horizTouchX = MAXFLOAT;
 	float horizTouchY = MAXFLOAT;
+	int wallTypeH = 0;
 	if(mAngle != 0 && mAngle != PI) // tan of these is undefined so skip them (will be picked up by Vert check)
 	{
 		// Find the coordinates of the closest horizontal grid intersections
@@ -68,6 +69,7 @@ bool Ray2d::Cast()
 			if(map.IsWallAtPos(horizTouchX, horizTouchY - (isRayFacingUp ? 1 : 0)))
 			{
 				distanceH = mPos.Distance(raylib::Vector2(horizTouchX, horizTouchY));
+				wallTypeH = Game::mMap.GetMapAttribV(raylib::Vector2(horizTouchX, horizTouchY - (isRayFacingUp ? 1 : 0)));
 				break;
 			}
 			horizTouchX += xStep;
@@ -79,6 +81,7 @@ bool Ray2d::Cast()
 	float distanceV = MAXFLOAT;
 	float vertTouchX = MAXFLOAT;
 	float vertTouchY = MAXFLOAT;
+	int wallTypeV = 0;
 	// Find the coordinates of the closest vertical grid intersections
 	xIntercept = floorf(mPos.x / tileSize) * tileSize;
 	xIntercept += isRayFacingRight ? tileSize : 0; // Checking next tile across if facing right
@@ -99,6 +102,7 @@ bool Ray2d::Cast()
 		if(map.IsWallAtPos(vertTouchX - (isRayFacingLeft ? 1 : 0), vertTouchY))
 		{
 			distanceV = mPos.Distance(raylib::Vector2(vertTouchX, vertTouchY));
+			wallTypeV = Game::mMap.GetMapAttribV(raylib::Vector2(vertTouchX - (isRayFacingLeft ? 1 : 0), vertTouchY));
 			break;
 		}
 		vertTouchX += xStep;
@@ -107,8 +111,9 @@ bool Ray2d::Cast()
 	
 	mLength = fmin(distanceH, distanceV);
 	mWasHitVertical = distanceV < distanceH;
-	distanceH < distanceV ? mIntersection = raylib::Vector2(horizTouchX, horizTouchY) :
-													mIntersection = raylib::Vector2(vertTouchX, vertTouchY);
+	mIntersection = mWasHitVertical ? raylib::Vector2(vertTouchX, vertTouchY) :
+																		raylib::Vector2(horizTouchX, horizTouchY);
+	mWallHitType = mWasHitVertical ? wallTypeV : wallTypeH;
 
 	return true;
 }

@@ -38,7 +38,7 @@ public:
 	
 private:
 	LineSegment CreateLineSegmentFromGrid(const int _startCol, const int _startRow, const int _endCol, const int _endRow);
-
+	raylib::Color GetMapColour(int mapCellType, unsigned char _intensity) const;
 };
 
 #endif /* Map_hpp */

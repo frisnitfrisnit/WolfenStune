@@ -23,6 +23,7 @@ struct Ray2d
 	raylib::Vector2 mIntersection;
 	float mLength;
 	bool mWasHitVertical;
+	int mWallHitType;
 	
 	bool isRayFacingUp;
 	bool isRayFacingDown;

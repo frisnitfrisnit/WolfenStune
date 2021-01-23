@@ -23,14 +23,14 @@ raylib::Color DARK_GREY(32,32,32,255);
 int grid[MAP_NUM_ROWS][MAP_NUM_COLS] =
 {
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
-	{1, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 1},
-	{1, 0, 2, 2, 2, 2, 0, 0, 0, 0, 5, 0, 1, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 0, 1},
+	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 1},
+	{1, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 5, 0, 1},
+	{1, 0, 2, 2, 2, 2, 0, 0, 0, 0, 5, 0, 5, 0, 1},
+	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 1},
+	{1, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 0, 1},
 	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 1, 1, 1, 1, 1, 0, 0, 0, 3, 4, 4, 3, 0, 1},
+	{1, 6, 6, 6, 6, 6, 0, 0, 0, 3, 4, 4, 3, 0, 1},
 	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 };
@@ -142,10 +142,9 @@ void Map::DrawMiniMap() const
 		{
 			int tileX = j * mTileSize;
 			int tileY = i * mTileSize;
-			const raylib::Color tileColor = grid[i][j] == 1 ? DARK_GREY : WHITE;
+			const raylib::Color tileColor = GetMapColour(grid[i][j], 255);
 			DrawRectangle(tileX * scale, tileY * scale, mTileSize * scale, mTileSize * scale, tileColor);
-			if(grid[i][j] == 0)
-				DrawRectangleLines(tileX * scale, tileY * scale, mTileSize * scale, mTileSize * scale, DARK_GREY);
+			DrawRectangleLines(tileX * scale, tileY * scale, mTileSize * scale, mTileSize * scale, DARK_GREY);
 		}
 	}
 	
@@ -172,6 +171,27 @@ int Map::GetMapAttribV(const raylib::Vector2& _pos) const
 	return(GetMapAttrib(_pos.x, _pos.y));
 }
 
+raylib::Color Map::GetMapColour(int mapCellType, unsigned char _intensity) const
+{
+	switch(mapCellType)
+	{
+		case 0:
+			return(DARKGRAY);
+		case 2:
+			return(raylib::Color(_intensity, 0, 0, 255));
+		case 3:
+			return(raylib::Color(0, _intensity, 0, 255));
+		case 4:
+			return(raylib::Color(0, 0, _intensity, 255));
+		case 5:
+			return(raylib::Color(_intensity, _intensity, 0, 255));
+		case 6:
+			return(raylib::Color(0, _intensity, _intensity, 255));
+		default:
+			return(raylib::Color(_intensity, _intensity, _intensity, 255));
+	}
+}
+
 void Map::Draw3DWallProjections()
 {
 	const std::vector<Ray2d> rays(Game::mPlayer.mWallRays);
@@ -187,7 +207,7 @@ void Map::Draw3DWallProjections()
 		// Colour the walls
 		float intensityMult = r.mWasHitVertical ? 1.0f : 0.5f;
 		unsigned char intensity = static_cast<unsigned char>(Clamp(Remap(correctedDistance * intensityMult, 0.0f, mScreenWidth, 255.0f, 16.0f), 0.0f, 255.0f));
-		raylib::Color wallColour(intensity, intensity, intensity, 255);
+		raylib::Color	wallColour = GetMapColour(r.mWallHitType, intensity);
 		DrawRectangle(rayIndex * mWallWidth, (mScreenHeight / 2.0f) - (wallStripHeight / 2.0f),
 									mWallWidth, wallStripHeight, wallColour);
 		rayIndex++;
