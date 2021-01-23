@@ -64,14 +64,14 @@ void Player::UpdatePlayer(float _ts)
 	mWallRays.clear();
 #ifdef SINGLE_RAY
 	Ray2d newRay(mPos, mAngle);
-	newRay.Cast(0);
+	newRay.Cast();
 	mWallRays.push_back(newRay);
 #else
 	float rayAngle = mAngle - (mFOVAngle / 2.0f);
-	for(int r=0; r<mNumRays; r++)
+	for(int col = 0; col < mNumRays; col++)
 	{
 		Ray2d newRay(mPos, rayAngle);
-		newRay.Cast(r);
+		newRay.Cast();
 		mWallRays.push_back(newRay);
 		//printf("NewRay @ %.2f\n", rayAngle * RAD2DEG);
 		rayAngle += mFOVAngle / mNumRays;

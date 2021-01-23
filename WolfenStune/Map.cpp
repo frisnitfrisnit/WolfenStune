@@ -24,13 +24,13 @@ int grid[MAP_NUM_ROWS][MAP_NUM_COLS] =
 {
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
-	{1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1},
-	{1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
+	{1, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 1},
+	{1, 0, 2, 2, 2, 2, 0, 0, 0, 0, 5, 0, 1, 0, 1},
 	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1},
+	{1, 0, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 0, 1},
 	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1},
+	{1, 1, 1, 1, 1, 1, 0, 0, 0, 3, 4, 4, 3, 0, 1},
 	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 };
@@ -176,13 +176,20 @@ void Map::Draw3DWallProjections()
 {
 	const std::vector<Ray2d> rays(Game::mPlayer.mWallRays);
 	const float fov = Game::mPlayer.mFOVAngle;
+	const float playerAngle = Game::mPlayer.mAngle;
 	int rayIndex = 0;
 	for(auto& r: rays)
 	{
+		// Correct the distance since we're projecting to a flat plane and the ray distance will follow a radius
+		float correctedDistance = r.mLength * cos(r.mAngle - playerAngle);
 		float distanceProjPlane = (mScreenWidth / 2.0f) / tan(fov / 2.0f);
-		float wallStripHeight = (mTileSize / r.mLength) * distanceProjPlane;
+		float wallStripHeight = (mTileSize / correctedDistance) * distanceProjPlane;
+		// Colour the walls
+		float intensityMult = r.mWasHitVertical ? 1.0f : 0.5f;
+		unsigned char intensity = static_cast<unsigned char>(Clamp(Remap(correctedDistance * intensityMult, 0.0f, mScreenWidth, 255.0f, 16.0f), 0.0f, 255.0f));
+		raylib::Color wallColour(intensity, intensity, intensity, 255);
 		DrawRectangle(rayIndex * mWallWidth, (mScreenHeight / 2.0f) - (wallStripHeight / 2.0f),
-									mWallWidth, wallStripHeight, WHITE);
+									mWallWidth, wallStripHeight, wallColour);
 		rayIndex++;
 	}
 }

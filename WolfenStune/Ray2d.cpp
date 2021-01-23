@@ -33,7 +33,7 @@ float Ray2d::NormalizeAngle(const float _angle) const
 		return angleNorm;
 }
 
-bool Ray2d::Cast(int _columnID)
+bool Ray2d::Cast()
 {
 	const Map& map(Game::mMap);
 
