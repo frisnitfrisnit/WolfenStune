@@ -6,6 +6,7 @@
 //
 
 #include "Map.hpp"
+#include "Game.hpp"
 #include "raylib-cpp.hpp"
 
 const int MAP_NUM_ROWS = 11;
@@ -131,6 +132,7 @@ LineSegment Map::CreateLineSegmentFromGrid(const int _startCol, const int _start
 
 void Map::DrawMap() const
 {
+	const float scale = Game::mMiniMapScaleFactor;
 	for(int i = 0; i < MAP_NUM_ROWS; i++)
 	{
 		for(int j = 0; j < MAP_NUM_COLS; j++)
@@ -138,9 +140,9 @@ void Map::DrawMap() const
 			int tileX = j * mTileSize;
 			int tileY = i * mTileSize;
 			const raylib::Color tileColor = grid[i][j] == 1 ? DARK_GREY : WHITE;
-			DrawRectangle(tileX, tileY, mTileSize, mTileSize, tileColor);
+			DrawRectangle(tileX * scale, tileY * scale, mTileSize * scale, mTileSize * scale, tileColor);
 			if(grid[i][j] == 0)
-				DrawRectangleLines(tileX, tileY, mTileSize, mTileSize, DARK_GREY);
+				DrawRectangleLines(tileX * scale, tileY * scale, mTileSize * scale, mTileSize * scale, DARK_GREY);
 		}
 	}
 	

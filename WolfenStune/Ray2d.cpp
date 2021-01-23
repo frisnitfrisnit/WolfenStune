@@ -8,6 +8,8 @@
 #include "Ray2d.hpp"
 #include "Game.hpp"
 
+
+
 Ray2d::Ray2d(const raylib::Vector2& _pos, const float _angle)
 {
 	mPos = _pos;
@@ -75,6 +77,8 @@ bool Ray2d::Cast(int _columnID)
 	
 	// Check vertical intersection
 	float distanceV = MAXFLOAT;
+	float vertTouchX = MAXFLOAT;
+	float vertTouchY = MAXFLOAT;
 	// Find the coordinates of the closest vertical grid intersections
 	xIntercept = floorf(mPos.x / tileSize) * tileSize;
 	xIntercept += isRayFacingRight ? tileSize : 0; // Checking next tile across if facing right
@@ -87,8 +91,8 @@ bool Ray2d::Cast(int _columnID)
 	yStep *= (isRayFacingUp && yStep > 0.0f) ? -1 : 1;
 	yStep *= (isRayFacingDown && yStep < 0.0f) ? -1 : 1;
 	
-	float vertTouchX = xIntercept;
-	float vertTouchY = yIntercept;
+	vertTouchX = xIntercept;
+	vertTouchY = yIntercept;
 	while(vertTouchX >= 0 && vertTouchX <= Game::mScreenWidth &&
 				vertTouchY >= 0 && vertTouchY <= Game::mScreenHeight)
 	{

@@ -26,6 +26,7 @@ public:
 		
 	static Map mMap;
 	static Player mPlayer;
+	static float mMiniMapScaleFactor;
 
 };
 

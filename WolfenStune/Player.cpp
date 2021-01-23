@@ -82,6 +82,7 @@ void Player::UpdatePlayer(float _ts)
 
 void Player::DrawPlayer()
 {
+	const float scale = Game::mMiniMapScaleFactor;
 	// Draw rays below player
 	for(auto& r:mWallRays)
 	{
@@ -93,14 +94,14 @@ void Player::DrawPlayer()
 		
 		raylib::Vector2 rayDir = Vector2Rotate(Vector2{1.0f, 0.0f}, r.mAngle * RAD2DEG);
 		raylib::Vector2 endPos = r.mPos + (rayDir * r.mLength);
-		DrawCircleLines(r.mIntersection.x, r.mIntersection.y, 3, BLUE);
-		DrawLineEx(r.mPos, endPos, sRayDisplayWidth, sRayColour);
+		DrawCircleLines(r.mIntersection.x * scale, r.mIntersection.y * scale, 3 * scale, BLUE);
+		DrawLineEx(r.mPos * scale, endPos * scale, sRayDisplayWidth, sRayColour);
 	}
 
-	DrawCircleV(mPos, mRadius, RED);
+	DrawCircleV(mPos * scale, mRadius * scale, RED);
 	// Dir
-	/*raylib::Vector2 endPos = mPos + (GetPlayerDir() * 30.0f);
-	DrawLineV(mPos, endPos, RED);*/
+	raylib::Vector2 endPos = mPos + (GetPlayerDir() * 30.0f);
+	DrawLineV(mPos * scale, endPos * scale, BLUE);
 }
 
 raylib::Vector2 Player::GetPlayerDir() const
