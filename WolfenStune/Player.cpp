@@ -13,7 +13,6 @@
 
 static const Color sRayColour{255, 0, 0, 80};
 static const int sRayDisplayWidth = 1;
-static const int sWallWidth = 1;
 
 Player::Player()
 {
@@ -28,7 +27,7 @@ void Player::Init(int _x, int _y)
 {
 	mPos = raylib::Vector2(_x, _y);
 	mFOVAngle = 60 * DEG2RAD;
-	mNumRays = Game::mScreenWidth / sWallWidth;
+	mNumRays = Game::mScreenWidth / Game::mMap.mWallWidth;
 }
 
 void Player::UpdatePlayer(float _ts)

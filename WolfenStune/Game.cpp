@@ -33,6 +33,7 @@ void Game::UpdateGame(const float _ts)
 
 void Game::RenderGame()
 {
-	mMap.DrawMap();
+	mMap.Draw3DWallProjections();
+	mMap.DrawMiniMap();
 	mPlayer.DrawPlayer();
 }

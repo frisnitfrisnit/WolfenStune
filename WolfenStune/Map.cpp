@@ -41,6 +41,9 @@ Map::Map()
 
 void Map::CreateMap(int _tileSize)
 {
+	mScreenWidth = Game::mScreenWidth;
+	mScreenHeight = Game::mScreenHeight;
+
 	mTileSize = _tileSize;
 #if CAST_METHOD == CAST_METHOD_GENERATE_LINE_SEGMENTS
 	CreateCollisionEdges();
@@ -130,7 +133,7 @@ LineSegment Map::CreateLineSegmentFromGrid(const int _startCol, const int _start
 	return newSegment;
 }
 
-void Map::DrawMap() const
+void Map::DrawMiniMap() const
 {
 	const float scale = Game::mMiniMapScaleFactor;
 	for(int i = 0; i < MAP_NUM_ROWS; i++)
@@ -168,3 +171,19 @@ int Map::GetMapAttribV(const raylib::Vector2& _pos) const
 {
 	return(GetMapAttrib(_pos.x, _pos.y));
 }
+
+void Map::Draw3DWallProjections()
+{
+	const std::vector<Ray2d> rays(Game::mPlayer.mWallRays);
+	const float fov = Game::mPlayer.mFOVAngle;
+	int rayIndex = 0;
+	for(auto& r: rays)
+	{
+		float distanceProjPlane = (mScreenWidth / 2.0f) / tan(fov / 2.0f);
+		float wallStripHeight = (mTileSize / r.mLength) * distanceProjPlane;
+		DrawRectangle(rayIndex * mWallWidth, (mScreenHeight / 2.0f) - (wallStripHeight / 2.0f),
+									mWallWidth, wallStripHeight, WHITE);
+		rayIndex++;
+	}
+}
+

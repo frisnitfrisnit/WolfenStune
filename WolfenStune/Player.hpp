@@ -26,12 +26,12 @@ public:
 	
 	raylib::Vector2 mPos;
 	int mRadius = 3;
-	float mAngle = 0.0f;//315 * DEG2RAD;
+	float mAngle = 90.0f * DEG2RAD;
 	float mMoveSpeed = 2.0f;
 	float mRotationSpeed = 2 * DEG2RAD;
 	
 	float mFOVAngle;
-	float mNumRays = 0;
+	float mNumRays = 1;
 
 	std::vector<Ray2d> mWallRays;
 };
